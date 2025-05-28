@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../static/css/style.css"> 
+  <title>Berechnung, wie viel CO₂ Sie jährlich erzeugen</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__text">
+      <h1>Berechnen Sie, wie viel CO₂ Sie jährlich erzeugen!</h1>
+      <p>Es ist nützlich für jeden zu wissen!</p>
+    </div>
+  </header>
+  <main>
+    {% block content %}
+    <h2 class="main__title main__title--margin">Ihre CO₂-Emissionen:</h2>
+    <div class="main__rez" id="end">
+        {%if result <= 500%}
+        <img class="rez__img" src="../../static/img/earthgood.jpg" alt="">
+        <span>Ihr Ergebnis: {{result}} kg CO₂/Jahr</span>
+        <span>Sehr umweltfreundlich!</span>
+        {%elif result > 500 and result <= 1600%}
+        <img class="rez__img" src="../../static/img/space.jpg" alt="">
+        <span>Ihr Ergebnis: {{result}} kg CO₂/Jahr</span>
+        <span>Durchschnittliche CO₂-Emissionen</span>
+        {%else%}
+        <img class="rez__img" src="../../static/img/earthbad.svg" alt="">
+        <span>Ihr Ergebnis: {{result}} kg CO₂/Jahr</span>
+        <span>Über dem Durchschnitt. Probieren Sie umweltfreundliche Gewohnheiten aus!</span>
+        <a href="https://www.psd-rheinneckarsaar.de/ihre-psd-bank/nachhaltigkeit/nachhaltigkeit-im-alltag." 
+        target="_blank" 
+        class="main__link">Button für nützliche umweltfreundliche Gewohnheiten!</a>
+        {%endif%}
+    </div>
+    {% endblock %}
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
